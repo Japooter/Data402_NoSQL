@@ -8,15 +8,25 @@ In general, we can summarise the comparisons between SQL and NoSQL into a table.
 
 |Feature     |SQL                   |NoSQL                     |
 | ------     | ------               | ------                   |
-|Type        |Structured            |Dynamic                   |
+|Type        |Relational            |Non-Relational            |
 |Languages   |MySQL, SQLServer, etc.|Python, C#, MongoDB, etc. |
-|Design      |"Table Design"        |Freeform                  |
+|Design      |"Table Design"        |Dynamic                   |
 |Scalability |Vertical              |Horizontal                |
 
-By dynamic, we mean a form of structure that is a lot more flexible. Instead of being very stiff in how information is stored, NoSQL can be quite relaxed so long as the rules it sets are still followed. Design (or schema design) is the form it takes in visualising the concept. SQL is has a "table design" because upon looking at information within SQL it presents itself as just that, tables. NoSQL on the other hand has a lot more forms it can take, which we will look into, along with the differences in scalability and what this means.
+By non-relational, we mean a form of database storage that does not rely on them being associated with primary and foreign keys or (specifically) tables, concepts more attributed to relational databases. Design (or schema design) is the form it takes in visualising the concept. SQL is has a "table design" because upon looking at information within SQL it presents itself as just that, tables. NoSQL on the other hand has a lot more forms it can take, which we will look into, along with the differences in scalability and what this means. NoSQL ends up being great for JSON and data, stuff that appears more unstructured, whereas SQL is always best still for stuff that needs that extra structure to function correctly - perhaps a fixed list of chain locations and opening times for businesses. [1]
 
 ## NoSQL Schema Design
+NoSQL can take several forms due to its dynamic nature, but one form in particular is the idea of key-value pairs. This resembles dictionaries in Python or name-value pairs for JSON. A demonstration of this can be seen below, and shows perhaps one of the furthest forms of NoSQL from resembling SQL.
+![image](SQL_NoSQL_comparison.png "SQL and NoSQL compared in a similar scenario") [2]
+
+If it can be organised into a form as simple as this, it can work with NoSQL.
+
+## Scalability in NoSQL
+
+In SQL scalability is vertical, meaning a more packed load of querying and storage will need a better machine to handle the database.
 
 
+#### Sources
+[1] https://www.integrate.io/blog/the-sql-vs-nosql-difference/
 
-To give an example, in SQL scalability is vertical, meaning a more packed load of querying and storage will need a better machine to handle the database ()
+[2] https://medium.com/tech-tajawal/nosql-modeling-database-structuring-part-ii-4c364c4bc17a
