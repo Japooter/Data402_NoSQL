@@ -17,7 +17,8 @@ By non-relational, we mean a form of database storage that does not rely on them
 
 ## NoSQL Schema Design
 NoSQL can take several forms due to its dynamic nature, but one form in particular is the idea of key-value pairs. This resembles dictionaries in Python or name-value pairs for JSON. A demonstration of this can be seen below, and shows perhaps one of the furthest forms of NoSQL from resembling SQL.
-![image](SQL_NoSQL_comparison.png "SQL and NoSQL compared in a similar scenario") [2]
+
+<img src="SQL_NoSQL_comparison.png" alt="Comparison image to show key-value pairs within NoSQL as a schema design." width="600"/> [2]
 
 If it can be organised into a form as simple as this, it can work with NoSQL.
 
