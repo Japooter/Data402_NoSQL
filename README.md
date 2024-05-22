@@ -56,19 +56,31 @@ MongoDB is structured in a particular way to theoretically get the best efficien
 6. Query Router - Where the user (or client) has information obtained for them based on the query they input, which determines the path to the data requested and, if necessary, which shard to be directed to
 7. Configuration servers - Where configuration settings for the instance of MongoDB being utilised for a database are stored
 
+[7]
 
+The architecture structure is possible due to a storage engine, which determines the storage of data within memory. By default, MongoDB uses what is known as the "Wired Tiger" storage engine, but the user  can also modify this to what they want if they feel an alternative is preferable. [8]
+
+## When should MongoDB be used?
+
+Every scenario will differ on the relevancy of using MongoDB, so it is important to know what is good and bad about it. Some advantages have been mentioned above, such as the highly scalable model of NoSQL implemented into MongoDB and the efficiency in which it can store data in documents, but compared to other choices MongoDB also boasts in its apparent simplicity of use, along with highly valuable documentation that users can access at any point online. There are, however, some drawbacks. Like in SQL, NoSQL databases might need to have joins occur within queries. MongoDB does not support the use of joins well, resulting in any potential joins that need to be made having to be done in a very tedious way, involving the duplication of data in some cases. This can also lead to another issue of high memory usage, as duplicating data just for a simple join results in memory being used up just for redundant data. This should be okay for small amounts of data, but considerably large amounts should be considered carefully before any duplication is committed for a join, as it could lead to negative system-wide consequences. There is also the chance of data corruption when transactions occur, which in MongoDB is thankfully not a common occurrence, but this does not reduce the severity of data corruption when it does happen. [9]
+
+For this reason, you would be correct in assuming that databases which will involve a lot of joins (inner or outer) would be heavily restricted if built with MongoDB, especially if the computer required to handle it is risking a cap in memory usage (it is always better to be safe than sorry and maybe seek a computer with higher RAM included). However, if a large amount of data is present and it needs to be analysed at high speed, MongoDB's document database design should hopefully prove to be the better instance of creating a database over an SQL language.
 
 #### Sources
-[1] "SQL vs NoSQL: 5 Critical Differences", as of 22/05/2024 - https://www.integrate.io/blog/the-sql-vs-nosql-difference/
+[1] "SQL vs NoSQL: 5 Critical Differences" - https://www.integrate.io/blog/the-sql-vs-nosql-difference/
 
-[2] https://medium.com/tech-tajawal/nosql-modeling-database-structuring-part-ii-4c364c4bc17a
+[2] "Learning NoSQL — NoSQL Database Designing" - https://medium.com/tech-tajawal/nosql-modeling-database-structuring-part-ii-4c364c4bc17a
 
-[3] https://www.datacamp.com/blog/sql-vs-nosql-databases
+[3] "SQL vs NoSQL Databases: Key Differences and Practical Insights" - https://www.datacamp.com/blog/sql-vs-nosql-databases
 
-[4] https://www.cloudzero.com/blog/horizontal-vs-vertical-scaling/
+[4] "Horizontal Vs. Vertical Scaling: How Do They Compare?" - https://www.cloudzero.com/blog/horizontal-vs-vertical-scaling/
 
-[5] https://docs.aws.amazon.com/whitepapers/latest/choosing-an-aws-nosql-database/types-of-nosql-databases.html
+[5] "Types of NoSQL databases" - https://docs.aws.amazon.com/whitepapers/latest/choosing-an-aws-nosql-database/types-of-nosql-databases.html
 
-[6] https://www.w3schools.com/mongodb/mongodb_get_started.php
+[6] "MongoDB - Getting Started" - https://www.w3schools.com/mongodb/mongodb_get_started.php
 
-[7] 
+[7] "MongoDB Architecture and Characteristics" - https://medium.com/techieahead/mongodb-architecture-and-characteristics-32a3798c2b49
+
+[8] "How MongoDB Works" - https://dotnettutorials.net/lesson/how-mongodb-works/
+
+[9] "Understanding the Pros and Cons of MongoDB" - https://www.knowledgenile.com/blogs/pros-and-cons-of-mongodb
