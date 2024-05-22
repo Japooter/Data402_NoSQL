@@ -24,7 +24,7 @@ If it can be organised into a form as simple as this, it can work with NoSQL.
 
 ## Scalability in NoSQL
 
-In SQL scalability is vertical, meaning a more packed load of querying and storage will need a better machine to handle the database.
+In SQL scalability is vertical, meaning a more packed load of querying and storage will need a better machine to handle the database. This is fine for a small project that can handle the higher demand, but for many cases this is unwarranted. With NoSQL, it is thankfully less stressful to increase the load of the system due to its horizontal scalability. This implies that larger work loads can be handled by separating the load amongst multiple servers in a process known as "sharding". This is great as it does end up being more efficient than getting one more powerful machine, the work that multiple servers can do ending up being more usable and getting an overall larger outcome than vertical scaling, but it can still have some caveats. For instance, servers can be quite expensive still, plus the need to have all these servers connected in some form.
 
 
 #### Sources
