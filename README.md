@@ -66,6 +66,33 @@ Every scenario will differ on the relevancy of using MongoDB, so it is important
 
 For this reason, you would be correct in assuming that databases which will involve a lot of joins (inner or outer) would be heavily restricted if built with MongoDB, especially if the computer required to handle it is risking a cap in memory usage (it is always better to be safe than sorry and maybe seek a computer with higher RAM included). However, if a large amount of data is present and it needs to be analysed at high speed, MongoDB's document database design should hopefully prove to be the better instance of creating a database over an SQL language.
 
+# MongoDB exercises
+Note: simple commands for MongoDB, which can be typed into the MongoDB Shell (mongosh):
+- use <name_of_database>
+- db.createCollection(<name_of_collection>)
+- db.collection_name_here.insertOne({"key": "value"})
+- db.collection_name_here.insertMany([ { "key1": "value1", "key2": "value2" }, { "key1": "value2.2", "key2": "big_value" }])
+- show collections
+- db.getCollectionNames()
+- db.collection_name_here.find({})
+- db.collection_name_here.updateOne(<insert_syntax>)
+- db.collection_name_here.updateMany(<insert_syntax>)
+- db.collection_name_here.deleteOne(<insert_syntax>)
+- db.collection_name_here.deleteMany(<insert_syntax>)
+
+Exercise 1:
+```
+db.createCollection('mongodb_intro_exercises')
+db.mongodb_intro_exercises.insertOne({name: 'Grave of the Fireflies', year:NumberInt(1988), 'box office':'¥1.7 billion', 'notes': 'Japanese animation film' })
+db.mongodb_intro_exercises.insertMany([{name:'John Wick: Chapter 2', year:NumberInt(2017), 'box office':'$174.3 million', notes: {genre: 'Action', lead: 'Keanu Reeves'}}, {name:'The Incredibles', year:NumberInt(2004), 'box office': '$631.6 million', notes: 'Brad Bird directs'}])
+```
+
+Exercise 2:
+```
+db.mongodb_intro_exercises.insertOne({name: 'To be removed', year:'This year', 'box office':'we do not have a box so let\'s just remove it', notes:'Delete this'})
+
+```
+
 #### Sources
 [1] "SQL vs NoSQL: 5 Critical Differences" - https://www.integrate.io/blog/the-sql-vs-nosql-difference/
 
