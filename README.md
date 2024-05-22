@@ -90,7 +90,18 @@ db.mongodb_intro_exercises.insertMany([{name:'John Wick: Chapter 2', year:Number
 Exercise 2:
 ```
 db.mongodb_intro_exercises.insertOne({name: 'To be removed', year:'This year', 'box office':'we do not have a box so let\'s just remove it', notes:'Delete this'})
+db.mongodb_intro_exercises.updateOne({name:"To be removed"}, {$set: {'final verdict': 'wait a second, this isn\'t a film!'}})
+db.mongodb_intro_exercises.updateOne({name:"To be removed"}, {$unset: {'final verdict': null}})
+db.mongodb_intro_exercises.deleteOne({name: "To be removed"})
+```
 
+Exercise 3:
+```
+||/ Name                   Version      Architecture Description
++++-======================-============-============-===================================================================================
+ii  mongodb-database-tools 100.9.4      amd64        mongodb-database-tools package provides tools for working with the MongoDB server: 
+
+# Proof of installation of database tools
 ```
 
 #### Sources
