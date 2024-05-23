@@ -144,6 +144,20 @@ $lte # Finds values less than or equal to the input value for all the documents 
 $ne # Finds values not equal to the input value for all the documents in a collection
 $nin # Finds values within documents that are not included in a given list
 ```
+## Advanced MongoDB
+Aggregation in MongoDB can be done in two forms, either with single purpose aggregate methods or what are known as "aggregate pipelines". Pipelines in this sense are ways to do a whole order of processes that involve aggregation, all by separating each "stage" into an array value, for example:
+```
+db.orders.aggregate( [
+{
+    $aggregatefunction1: {key1: "valueA"}
+},
+
+{
+    $aggregatefunction2: {key2: "$valueB", key3: {$aggregatefunction3: "$valueC" }}
+}
+] )
+```
+Aggregate functions can be within aggregate functions, but the pipeline itself is only in two distinct parts, indicated by the comma separating the values in the array.
 
 #### Sources
 [1] "SQL vs NoSQL: 5 Critical Differences" - https://www.integrate.io/blog/the-sql-vs-nosql-difference/
