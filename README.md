@@ -174,6 +174,42 @@ db.characters.countDocuments({'species.name': 'Human'})
 db.characters.estimatedDocumentCount()  # Uses metadata to attempt to find the total number of documents. It does not take any variables
 ```
 
+Adv. Exercise 3:
+```
+# Darth Vader ObjectID: ObjectId('664f1580b065a88471583ac6')
+db.createCollection("starships")
+
+db.starships.insertOne({ name: "TIE Advanced x1", model: "Twin Ion Engine Advanced x1", manufacturer: "Sienar Fleet Systems", length: 9.2, max_atmosphering_speed: 1200, crew: 1, passengers: 0, pilot: ObjectId('664f1580b065a88471583ac6') })
+
+db.starships.aggregate([ { $lookup: { from: "characters", localField: "pilot", foreignField: "_id", as: "matched_pilot" } }] )
+
+# Matching the ObjectID from the local field (local because in the starships collection) to the ID that matches within the foreign field ("characters") gives us the information of Darth Vader that we would normally get from the characters collection, but it has been referenced so that it works here.
+
+# Han Solo ObjectID: ObjectId('664f158060522817117f0708')
+# Lando Calrissian ObjectID: ObjectId('664f15808b6d5e90cd8b30c0')
+
+db.starships.insertOne({ name: "Millennium Falcon", model: "Big Hyperdrive Junk Ship (BHJS)", manufacturer: "Corellian Engineering Corporation", length: 34.75, max_atmosphering_speed: 1050, crew: 2, passengers: 5, pilot: [ObjectId('664f158060522817117f0708'), ObjectId('664f15808b6d5e90cd8b30c0')] })
+
+db.starships.aggregate([ { $lookup: { from: "characters", localField: "pilot", foreignField: "_id", as: "matched_pilot" } }, { $project: { name: 1, model: 1, "matched_pilot.name": 1 } }] )
+
+# The final output:
+[
+  {
+    _id: ObjectId('664f4f4e2576534f3da26a13'),
+    name: 'TIE Advanced x1',
+    model: 'Twin Ion Engine Advanced x1',
+    matched_pilot: [ { name: 'Darth Vader' } ]
+  },
+  {
+    _id: ObjectId('664f52c12576534f3da26a14'),
+    name: 'Millennium Falcon',
+    model: 'Big Hyperdrive Junk Ship (BHJS)',
+    matched_pilot: [ { name: 'Lando Calrissian' }, { name: 'Han Solo' } ]
+  }
+]
+
+
+```
 
 #### Sources
 [1] "SQL vs NoSQL: 5 Critical Differences" - https://www.integrate.io/blog/the-sql-vs-nosql-difference/
