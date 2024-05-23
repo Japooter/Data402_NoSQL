@@ -104,6 +104,23 @@ ii  mongodb-database-tools 100.9.4      amd64        mongodb-database-tools pack
 # Proof of installation of database tools
 ```
 
+Exercise 5:
+```
+db.characters.find({name:"Luke Skywalker})
+```
+
+Exercise 6:
+```
+db.characters.find({'species.name':"Human"}, {name: 1, 'homeworld.name': 1})
+```
+
+Exercise 7:
+```
+db.characters.find({$or: [{eye_color:"yellow"}, {eye_color:"orange"}]})
+```
+
+
+
 #### Sources
 [1] "SQL vs NoSQL: 5 Critical Differences" - https://www.integrate.io/blog/the-sql-vs-nosql-difference/
 
