@@ -107,6 +107,8 @@ ii  mongodb-database-tools 100.9.4      amd64        mongodb-database-tools pack
 Exercise 5:
 ```
 db.characters.find({name:"Luke Skywalker})
+db.characters.find({name:"Chewbacca"}, {name: 1, eye_color: 1})
+db.characters.find({name: "Ackbar"}, {'species.name': 1, name: 1})
 ```
 
 Exercise 6:
