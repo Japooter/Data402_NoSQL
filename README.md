@@ -159,6 +159,22 @@ db.orders.aggregate( [
 ```
 Aggregate functions can be within aggregate functions, but the pipeline itself is only in two distinct parts, indicated by the comma separating the values in the array.
 
+Adv. Exercise 1:
+```
+db.characters.aggregate([{$match: {"species.name": "Human"}},{$group: {_id: "$species.name", totalHeight: {$sum: "$height"}}}])
+db.characters.aggregate([{$group: {_id: "$homeworld.name", maxHeight: {$max: "$height"}}}])
+db.characters.aggregate([{$match: {"mass":{$nin: [null]}}},{$group: {_id: "$species.name", avgMass: {$avg: "$mass"}, speciesCount: {$count: {} }} }, {$sort: {'avgMass': 1}}])
+
+```
+
+Adv. Exercise 2:
+```
+db.characters.distinct('species.name')
+db.characters.countDocuments({'species.name': 'Human'})
+db.characters.estimatedDocumentCount()  # Uses metadata to attempt to find the total number of documents. It does not take any variables
+```
+
+
 #### Sources
 [1] "SQL vs NoSQL: 5 Critical Differences" - https://www.integrate.io/blog/the-sql-vs-nosql-difference/
 
