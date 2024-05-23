@@ -118,8 +118,30 @@ Exercise 7:
 ```
 db.characters.find({$or: [{eye_color:"yellow"}, {eye_color:"orange"}]})
 ```
+Exercise 8:
+```
+db.characters.find({$and: [{eye_color: "blue"}, {gender:"female"}]})
+db.characters.find({$or: [{eye_color: "blue"}, {gender:"female"}]})
+```
+Exercise 9:
+```
+db.characters.find({height:{$gt: "200"}}, {name:1, height: 1})
+# Done like this as height is in strings, this will give incorrect answers but still list stuff. Below is conversion to int.
+db.characters.updateMany( {}, [{$set: {height:{"$convert":{input: "$height", to: "int", onError: null}}}}])
+db.characters.find({height:{$gt: 200}}, {name:1, height: 1})
 
-
+```
+Exercise 10:
+```
+$eq  # Finds values equal to the input value for all the documents in a collection
+$gt # Finds values greater than the input value for all the documents in a collection
+$gte # Finds values greater than or equal to the input value for all the documents in a collection
+$in # Finds values within documents that equal the values inputted into a given list
+$lt # Finds values less than the input value for all the documents in a collection
+$lte # Finds values less than or equal to the input value for all the documents in a collection
+$ne # Finds values not equal to the input value for all the documents in a collection
+$nin # Finds values within documents that are not included in a given list
+```
 
 #### Sources
 [1] "SQL vs NoSQL: 5 Critical Differences" - https://www.integrate.io/blog/the-sql-vs-nosql-difference/
