@@ -229,3 +229,8 @@ db.starships.aggregate([ { $lookup: { from: "characters", localField: "pilot", f
 [8] "How MongoDB Works" - https://dotnettutorials.net/lesson/how-mongodb-works/
 
 [9] "Understanding the Pros and Cons of MongoDB" - https://www.knowledgenile.com/blogs/pros-and-cons-of-mongodb
+
+
+for i in *.json; do
+    mongoimport --db starwars --collection characters --jsonArray --file "$i"
+done
