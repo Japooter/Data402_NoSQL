@@ -52,7 +52,8 @@ for i in avg_female_height:
     print(i)
 
 print('\n Aggregation Exercise 2')
-tallest_character = db.characters.aggregate([{'$project': { 'maxHeight': {'$max': '$height'}, 'nameList': {'$max': '$name'}}}])
+tallest_character = db.characters.aggregate([{'$project': { 'maxHeight': {'$max': '$height'},
+                                                            'nameList': {'$max': '$name'}}}])
 height_list = []
 name_list = []
 for i in tallest_character:
@@ -66,3 +67,45 @@ for i in tallest_character:
 ref = height_list.index(max(height_list))
 # print(name_list[ref])
 print(f"The tallest character is {name_list[ref]}, with a height of {max(height_list)} cm.")
+
+
+# starships_attempt = db.starships.aggregate([
+#   { '$lookup': {
+#     'from': "characters",
+#     'localField': "pilot",
+#     'foreignField': "_id",
+#     'as': "matched_pilot"
+#   } },
+#     { '$project': {'name': 1, 'model': 1, 'matched_pilot.name': 1}}
+# ])
+#
+# for star_info in starships_attempt:
+#     print(star_info)
+
+find_pilot = db.characters.aggregate([
+    {'$lookup': {
+        'from': 'starships',
+        'localField': '_id',
+        'foreignField': 'pilot',
+        'as': 'pilot_for'
+    } },
+    {'$match': {'pilot_for': {'$nin': [[]]}}},
+    {'$project': {'name': 1, 'homeworld.name': 1, 'pilot_for.name': 1, 'pilot_for.model': 1,
+                  'pilot_for.manufacturer': 1, '_id': 0}}
+
+])
+
+for star_info in find_pilot:
+    print('\n')
+    print(star_info)
+
+
+# Max height
+max_height = db.characters.aggregate([
+    {"$group":
+         {"_id": None, "max_height": {"$max": "$height"}}
+    }
+]).next()["max_height"]
+
+for tallest in db.characters.find({"height": max_height}):
+    print(tallest["name"], tallest["height"])
