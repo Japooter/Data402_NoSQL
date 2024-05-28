@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a458b7b-ed9e-404a-8ab7-a7034656ad32" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pymongo_SWAPI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/first_mongo.py" beforeDir="false" afterPath="$PROJECT_DIR$/first_mongo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_SWAPI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pymongo_SWAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/pymongo_SWAPI.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
